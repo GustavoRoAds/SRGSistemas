@@ -1,0 +1,14 @@
+program SRGSistemas;
+
+uses
+  Vcl.Forms,
+  uSRGSistemas in 'uSRGSistemas.pas' {fSRGSistemas};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfSRGSistemas, fSRGSistemas);
+  Application.Run;
+end.

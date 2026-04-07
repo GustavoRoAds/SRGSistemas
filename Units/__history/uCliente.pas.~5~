@@ -1,0 +1,31 @@
+unit uCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons;
+
+type
+  TfCliente = class(TForm)
+    pnBotao: TPanel;
+    Panel1: TPanel;
+    clSalvar: TSpeedButton;
+    Panel2: TPanel;
+    clLimpar: TSpeedButton;
+    Panel3: TPanel;
+    clExcluir: TSpeedButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fCliente: TfCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.
