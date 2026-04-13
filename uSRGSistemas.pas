@@ -18,6 +18,8 @@ type
     Panel4: TPanel;
     srCliente: TImage;
     procedure srClienteClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -31,11 +33,49 @@ implementation
 
 {$R *.dfm}
 
-uses uCliente;
+uses uCliente, estrutura_banco, uDM;
+
+procedure TfSRGSistemas.FormCreate(Sender: TObject);
+var
+  cQry:string;
+begin
+  DM.oQry.close;
+  DM.oQry.SQL.Clear;
+  DM.oQry.Connection := DM.oCon;
+
+  cQry := ' CREATE TABLE IF NOT EXISTS cliente( ';
+  cQry := cQry + ' codigo INTEGER PRIMARY KEY AUTOINCREMENT, ';
+  cQry := cQry + ' nome TEXT NOT NULL, ';
+  cQry := cQry + ' cpf TEXT NOT NULL, ';
+  cQry := cQry + ' cnpj TEXT NOT NULL, ';
+  cQry := cQry + ' rg TEXT, ';
+  cQry := cQry + ' cep TEXT, ';
+  cQry := cQry + ' endereco TEXT, ';
+  cQry := cQry + ' numero TEXT, ';
+  cQry := cQry + ' bairro TEXT, ';
+  cQry := cQry + ' telefone TEXT, ';
+  cQry := cQry + ' celular TEXT, ';
+  cQry := cQry + ' observacao TEXT ';
+  cQry := cQry+  ');';
+
+  DM.oQry.SQL.Clear;
+  DM.oQry.SQL.Add(cQry);
+  DM.oQry.ExecSQL();
+end;
+
+procedure TfSRGSistemas.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = VK_ESCAPE then
+    fSRGSistemas.close;
+end;
 
 procedure TfSRGSistemas.srClienteClick(Sender: TObject);
 begin
+  Application.CreateForm(TfCliente, fCliente);
   fCliente.ShowModal;
+  fCliente.release;
+  fCliente.free;
 end;
 
 end.

@@ -39,6 +39,8 @@ type
     clObs: TMemo;
     Label8: TLabel;
     Label9: TLabel;
+    BitBtn1: TBitBtn;
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -51,5 +53,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfCliente.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = VK_ESCAPE then
+    fCliente.close;
+end;
 
 end.

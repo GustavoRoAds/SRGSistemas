@@ -11,7 +11,9 @@ object fCliente: TfCliente
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   Position = poScreenCenter
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object cllbCpj: TLabel
     Left = 3
@@ -42,22 +44,22 @@ object fCliente: TfCliente
     Caption = 'CEP'
   end
   object Label2: TLabel
-    Left = 98
-    Top = 175
+    Left = 142
+    Top = 177
     Width = 49
     Height = 15
     Caption = 'Endere'#231'o'
   end
   object Label4: TLabel
-    Left = 298
-    Top = 175
+    Left = 342
+    Top = 177
     Width = 44
     Height = 15
     Caption = 'Numero'
   end
   object Label5: TLabel
-    Left = 394
-    Top = 175
+    Left = 438
+    Top = 177
     Width = 31
     Height = 15
     Caption = 'Bairro'
@@ -244,22 +246,22 @@ object fCliente: TfCliente
     TabOrder = 5
   end
   object clEndereco: TEdit
-    Left = 98
-    Top = 194
+    Left = 142
+    Top = 196
     Width = 186
     Height = 23
     TabOrder = 6
   end
   object clNumeroEnd: TEdit
-    Left = 298
-    Top = 194
+    Left = 342
+    Top = 196
     Width = 82
     Height = 23
     TabOrder = 7
   end
   object clBairro: TEdit
-    Left = 394
-    Top = 194
+    Left = 438
+    Top = 196
     Width = 130
     Height = 23
     TabOrder = 8
@@ -294,5 +296,12 @@ object fCliente: TfCliente
     Lines.Strings = (
       '')
     TabOrder = 12
+  end
+  object BitBtn1: TBitBtn
+    Left = 90
+    Top = 195
+    Width = 41
+    Height = 25
+    TabOrder = 13
   end
 end

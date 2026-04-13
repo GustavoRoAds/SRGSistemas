@@ -1,0 +1,11 @@
+unit estrutura_banco;
+
+interface
+
+implementation
+
+uses uDM;
+
+
+
+end.

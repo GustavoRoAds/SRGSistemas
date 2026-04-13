@@ -1,0 +1,160 @@
+unit uLogin;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls;
+
+type
+  TfLogin = class(TForm)
+    Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
+    Label1: TLabel;
+    GroupBox1: TGroupBox;
+    lgUsuario: TEdit;
+    GroupBox2: TGroupBox;
+    lgSenha: TEdit;
+    Image1: TImage;
+    lgLembrarSenha: TCheckBox;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
+    procedure lgLembrarSenhaClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    procedure buscaUsuario(valida:boolean=false);
+
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fLogin: TfLogin;
+
+implementation
+
+{$R *.dfm}
+
+uses estrutura_banco, uDM, uSRGSistemas;
+
+procedure TfLogin.FormCreate(Sender: TObject);
+begin
+  DM.oQry.Connection := DM.oCon;
+end;
+
+procedure TfLogin.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+ if key = chr(27) then
+  fLogin.close;
+
+end;
+
+procedure TfLogin.FormShow(Sender: TObject);
+var
+  lAtivo:boolean;
+begin
+  criaTodasTabelas;
+
+  DM.oQry.close;
+  DM.oQry.SQL.Clear;
+
+  DM.oQry.SQL.Add(' SELECT nome, senha FROM usuario where codigo = 1 ');
+  DM.oQry.Open();
+
+  if DM.oQry.RecordCount > 0 then
+  begin
+    lgLembrarSenha.Checked := true;
+
+    lgUsuario.Text := dm.oQry.FieldByName('nome').AsString;
+    lgSenha.Text := DM.oQry.FieldByName('senha').AsString;
+  end;
+
+  if lgLembrarSenha.Checked = true then
+  begin
+    buscaUsuario();
+  end;
+
+
+
+end;
+
+procedure TfLogin.lgLembrarSenhaClick(Sender: TObject);
+begin
+//  DM.oQry.close;
+//  DM.oQry.SQL.Clear;
+//
+//  dm.oQry.SQL.Add(' UPDATE usuario SET usuariolembrar = :usuariolembrar ');
+//  if lgLembrarSenha.Checked then
+//  begin
+//    dm.oQry.ParamByName('usuariolembrar').AsString := 'S';
+//  end
+//  else
+//    dm.oQry.ParamByName('usuariolembrar').AsString := 'N';
+//
+//  DM.oQry.ExecSQL();
+end;
+
+procedure TfLogin.SpeedButton1Click(Sender: TObject);
+begin
+  buscaUsuario(true);
+end;
+
+procedure TfLogin.buscaUsuario(valida:boolean=false);
+var
+  cQry:string;
+  lPassouUser, lPassouSenha:boolean;
+begin
+  DM.oQry.close;
+  dm.oQry.SQL.Clear;
+
+  if valida = true then
+    begin
+    dm.oQry.SQL.Add(' SELECT * FROM usuario where nome = :nome ');
+    dm.oQry.ParamByName('nome').AsString := LowerCase(lgUsuario.Text);
+    dm.oQry.Open();
+
+
+    lPassouUser := false;
+    lPassouSenha := false;
+    if dm.oQry.RecordCount > 0 then
+    begin
+
+      if dm.oQry.FieldByName('nome').AsString =  LowerCase(lgUsuario.Text) then
+        lPassouUser := true;
+
+      if dm.oQry.FieldByName('senha').AsString =  LowerCase(lgSenha.Text) then
+        lPassouSenha := true;
+
+
+        if (lPassouSenha = true) and (lPassouUser = true) then
+        begin
+          Application.CreateForm(TfSRGSistemas, fSRGSistemas);
+          fSRGSistemas.ShowModal;
+          fSRGSistemas.release;
+          fSRGSistemas.free;
+
+
+          fLogin.close;
+        end
+        else
+        begin
+          ShowMessage('Usuario ou Senha Incorretos!')
+        end;
+
+    end
+    else
+    begin
+      if valida = true then
+        ShowMessage('Usuario ou Senha Incorretos!');
+    end;
+  end;
+
+  dm.oQry.SQL.Add(' SELECT * FROM usuario where nome = :nome ');
+  dm.oQry.ParamByName('nome').AsString := LowerCase(lgUsuario.Text);
+  dm.oQry.Open();
+
+end;
+
+end.

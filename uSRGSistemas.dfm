@@ -10,7 +10,10 @@ object fSRGSistemas: TfSRGSistemas
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object Panel2: TPanel
     Left = 0

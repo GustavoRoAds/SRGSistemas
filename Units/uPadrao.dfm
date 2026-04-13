@@ -11,6 +11,7 @@ object fPadrao: TfPadrao
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   TextHeight = 15
   object pnBotao: TPanel
     AlignWithMargins = True
