@@ -3,7 +3,7 @@ object fCliente: TfCliente
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Cliente'
-  ClientHeight = 454
+  ClientHeight = 509
   ClientWidth = 800
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -38,7 +38,7 @@ object fCliente: TfCliente
   end
   object Label1: TLabel
     Left = 3
-    Top = 175
+    Top = 177
     Width = 21
     Height = 15
     Caption = 'CEP'
@@ -51,14 +51,14 @@ object fCliente: TfCliente
     Caption = 'Endere'#231'o'
   end
   object Label4: TLabel
-    Left = 342
+    Left = 389
     Top = 177
     Width = 44
     Height = 15
     Caption = 'Numero'
   end
   object Label5: TLabel
-    Left = 438
+    Left = 480
     Top = 177
     Width = 31
     Height = 15
@@ -66,14 +66,14 @@ object fCliente: TfCliente
   end
   object Label6: TLabel
     Left = 3
-    Top = 231
+    Top = 277
     Width = 44
     Height = 15
     Caption = 'Telefone'
   end
   object Label7: TLabel
     Left = 123
-    Top = 231
+    Top = 277
     Width = 37
     Height = 15
     Caption = 'Celular'
@@ -87,7 +87,7 @@ object fCliente: TfCliente
   end
   object Label8: TLabel
     Left = 3
-    Top = 287
+    Top = 327
     Width = 62
     Height = 15
     Caption = 'Observa'#231#227'o'
@@ -99,10 +99,24 @@ object fCliente: TfCliente
     Height = 15
     Caption = 'C'#243'digo'
   end
+  object Label10: TLabel
+    Left = 3
+    Top = 228
+    Width = 37
+    Height = 15
+    Caption = 'Cidade'
+  end
+  object Label11: TLabel
+    Left = 336
+    Top = 177
+    Width = 14
+    Height = 15
+    Caption = 'UF'
+  end
   object pnBotao: TPanel
     AlignWithMargins = True
     Left = 3
-    Top = 410
+    Top = 465
     Width = 794
     Height = 41
     Align = alBottom
@@ -110,6 +124,7 @@ object fCliente: TfCliente
     Color = 16744448
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 410
     object Panel1: TPanel
       AlignWithMargins = True
       Left = 3
@@ -141,6 +156,7 @@ object fCliente: TfCliente
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = clSalvarClick
         ExplicitLeft = 40
         ExplicitTop = 8
         ExplicitWidth = 23
@@ -217,7 +233,7 @@ object fCliente: TfCliente
     Height = 23
     TabOrder = 1
   end
-  object clEdCpj: TEdit
+  object clEdCnpj: TEdit
     Left = 3
     Top = 79
     Width = 121
@@ -253,14 +269,14 @@ object fCliente: TfCliente
     TabOrder = 6
   end
   object clNumeroEnd: TEdit
-    Left = 342
+    Left = 389
     Top = 196
     Width = 82
     Height = 23
     TabOrder = 7
   end
   object clBairro: TEdit
-    Left = 438
+    Left = 480
     Top = 196
     Width = 130
     Height = 23
@@ -268,14 +284,14 @@ object fCliente: TfCliente
   end
   object clTelefone: TEdit
     Left = 3
-    Top = 250
+    Top = 296
     Width = 105
     Height = 23
     TabOrder = 9
   end
   object clCelular: TEdit
     Left = 123
-    Top = 250
+    Top = 296
     Width = 105
     Height = 23
     TabOrder = 10
@@ -288,8 +304,8 @@ object fCliente: TfCliente
     TabOrder = 11
   end
   object clObs: TMemo
-    Left = 8
-    Top = 308
+    Left = 3
+    Top = 348
     Width = 281
     Height = 89
     BevelOuter = bvNone
@@ -303,5 +319,19 @@ object fCliente: TfCliente
     Width = 41
     Height = 25
     TabOrder = 13
+  end
+  object cledCidade: TEdit
+    Left = 3
+    Top = 247
+    Width = 128
+    Height = 23
+    TabOrder = 14
+  end
+  object cledUf: TEdit
+    Left = 336
+    Top = 196
+    Width = 45
+    Height = 23
+    TabOrder = 15
   end
 end

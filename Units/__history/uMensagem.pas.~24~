@@ -1,0 +1,96 @@
+unit uMensagem;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TfMensagem = class(TForm)
+    Panel1: TPanel;
+    img: TImage;
+    btnSalvar: TBitBtn;
+    btnCancelar: TBitBtn;
+    btnOk: TBitBtn;
+    mTitulo: TLabel;
+    Panel2: TPanel;
+    mTexto: TLabel;
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+  private
+    
+    { Private declarations }
+  public
+    { Public declarations }
+     procedure Mensagem(texto:string; titulo:string; tipoImg:string; btn:string; btn2:string; btn3:string);
+  end;
+
+var
+  fMensagem: TfMensagem;
+
+implementation
+
+uses BaseModule;
+
+procedure TfMensagem.btnCancelarClick(Sender: TObject);
+begin
+  fMensagem.ModalResult := mrCancel;
+  fMensagem.Close;
+end;
+
+procedure TfMensagem.btnOkClick(Sender: TObject);
+begin
+fMensagem.ModalResult := mrAbort;
+  fMensagem.Close;
+end;
+
+procedure TfMensagem.btnSalvarClick(Sender: TObject);
+begin
+  fMensagem.ModalResult := mrOk;
+  fMensagem.Close;
+end;
+
+procedure TfMensagem.Mensagem(texto:string; titulo:string; tipoImg:string; btn:string; btn2:string; btn3:string);
+begin
+  mTexto.Caption := texto;
+  mTitulo.Caption := titulo;
+
+  if tipoImg = 'S' then
+  begin
+    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\ok.png');
+  end
+  else if tipoImg = 'N' then
+  begin
+    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\fail.png');
+  end
+  else if tipoImg = 'A' then
+  begin
+    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\exclamacao.png');
+  end;
+
+  if btn = 'mrCan' then
+  begin
+  
+    btnCancelar.Visible := true;
+  end;
+  
+  if btn2 = 'mrOk' then
+  begin
+    btnOk.Visible := true;
+  end;
+  
+  if btn3 = 'mrSal' then
+  begin
+    btnSalvar.Visible := true;
+  end;
+
+  Self.ShowModal;
+    
+end;
+
+
+{$R *.dfm}
+
+end.

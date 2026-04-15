@@ -28,7 +28,7 @@ begin
 
   cQry := ' CREATE TABLE IF NOT EXISTS cliente( ';
   cQry := cQry + ' codigo INTEGER PRIMARY KEY AUTOINCREMENT, ';
-  cQry := cQry + ' id_empresa INTEGER, ';
+  
   cQry := cQry + ' nome TEXT NOT NULL, ';
   cQry := cQry + ' cpf TEXT NOT NULL, ';
   cQry := cQry + ' cnpj TEXT NOT NULL, ';
@@ -37,10 +37,12 @@ begin
   cQry := cQry + ' endereco TEXT, ';
   cQry := cQry + ' numero TEXT, ';
   cQry := cQry + ' bairro TEXT, ';
+  cQry := cQry + ' uf TEXT, ';
+  cQry := cQry + ' cidade TEXT, ';
   cQry := cQry + ' telefone TEXT, ';
   cQry := cQry + ' celular TEXT, ';
   cQry := cQry + ' observacao TEXT, ';
-  cQry := cQry + ' foreign key (id_empresa) references empresa(codigo) ';
+  cQry := cQry + ' empresa INTEGER ';
   cQry := cQry+  ');';
 
   DM.oQry.SQL.Clear;

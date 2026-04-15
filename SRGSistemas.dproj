@@ -149,6 +149,11 @@
             <Form>fLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="BaseModule.pas"/>
+        <DCCReference Include="Units\uMensagem.pas">
+            <Form>fMensagem</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

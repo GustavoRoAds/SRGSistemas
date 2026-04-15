@@ -22,6 +22,8 @@ implementation
 
 {$R *.dfm}
 
+uses BaseModule;
+
 
 
 end.

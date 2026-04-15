@@ -1,4 +1,4 @@
-unit uLogin;
+﻿unit uLogin;
 
 interface
 
@@ -37,7 +37,7 @@ implementation
 
 {$R *.dfm}
 
-uses estrutura_banco, uDM, uSRGSistemas;
+uses estrutura_banco, uDM, uSRGSistemas, BaseModule;
 
 procedure TfLogin.FormCreate(Sender: TObject);
 begin
@@ -98,6 +98,9 @@ end;
 
 procedure TfLogin.SpeedButton1Click(Sender: TObject);
 begin
+  BaseModule.codEmpresa := 1;
+  BaseModule.BasePath := 'C:\SRGSistemas\';
+  
   buscaUsuario(true);
 end;
 

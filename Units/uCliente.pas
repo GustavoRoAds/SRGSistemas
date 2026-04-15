@@ -16,7 +16,7 @@ type
     Panel3: TPanel;
     clExcluir: TSpeedButton;
     clCodigo: TEdit;
-    clEdCpj: TEdit;
+    clEdCnpj: TEdit;
     clEdRg: TEdit;
     cllbCpj: TLabel;
     cllbRg: TLabel;
@@ -40,8 +40,14 @@ type
     Label8: TLabel;
     Label9: TLabel;
     BitBtn1: TBitBtn;
+    Label10: TLabel;
+    cledCidade: TEdit;
+    Label11: TLabel;
+    cledUf: TEdit;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure clSalvarClick(Sender: TObject);
   private
+    procedure salvar;
     { Private declarations }
   public
     { Public declarations }
@@ -53,6 +59,108 @@ var
 implementation
 
 {$R *.dfm}
+
+uses uDM, BaseModule, uMensagem;
+
+procedure TfCliente.clSalvarClick(Sender: TObject);
+var
+  cTexto: string;
+  validaFormulario :boolean;
+begin
+  validaFormulario := true;
+
+  cTexto := 'Esta faltando Preencher esses campos: '+chr(13)+chr(13);
+  if clEdCnpj.Text = '' then
+  begin
+    cTexto := cTexto +'CNPJ Inválido! '+chr(13);
+    validaFormulario := false;
+  end;
+
+  if clNome.Text = '' then
+  begin
+    cTexto := cTexto +'Nome Inválido! '+chr(13);
+    validaFormulario := false;
+  end;
+
+  if clEdFantasia.Text = '' then
+  begin
+    cTexto := cTexto +'Nome Fantasia Inválido! '+chr(13);
+    validaFormulario := false;
+  end;
+
+  if cledCidade.Text = '' then
+  begin
+    cTexto := cTexto +'Cidade Inválido! '+chr(13);
+    validaFormulario := false;
+  end;
+
+  if not validaFormulario then
+  begin
+    fMensagem.Mensagem(cTexto, 'Atenção', 'A', '','mrOK','');
+  end
+  else
+  begin
+    salvar();
+  end;
+    
+end;
+
+procedure TfCliente.salvar();
+var
+  cQry:string;
+  cTexto:string;
+begin
+  try
+    DM.oQry.Close;
+    DM.oQry.SQL.Clear;
+
+    if clCodigo.Text <> '' then
+    begin
+      cQry := 'UPDATE cliente SET nome = :nome, cpf = :cpf, cnpj = :cnpj, rg = :rg, cep = :cep, ';
+      cQry := cQry + ' endereco = :endereco, numero = :numero, bairro = :bairro, uf := :uf, cidade = :cidade, telefone = :telefone, ';
+      cQry := cQry + ' celular = :celular, observacao = :observacao WHERE empresa = :empresa';
+      cTexto := 'Alterado com Sucesso!';
+    end
+    else
+    begin
+      cQry := 'INSERT INTO cliente (nome, cpf, cnpj, rg, cep, ';
+      cQry := cQry + ' endereco, numero, bairro, uf, cidade, telefone, ';
+      cQry := cQry + ' celular, observacao, empresa';
+      cTexto := 'Inserido com Sucesso!';
+    end;
+    DM.oQry.SQL.Add(cQry);
+
+    DM.oQry.ParamByName('nome').AsString := clNome.text;
+    DM.oQry.ParamByName('cpf').AsString := clEdCnpj.text;
+    DM.oQry.ParamByName('cnpj').AsString := clEdCnpj.text;
+    DM.oQry.ParamByName('rg').AsString := clEdRg.text;
+    DM.oQry.ParamByName('cep').AsString := clCep.text;
+  
+    DM.oQry.ParamByName('endereco').AsString := clEndereco.text;
+    DM.oQry.ParamByName('numero').AsString := clNumeroEnd.text;
+    DM.oQry.ParamByName('bairro').AsString := clBairro.text;
+    DM.oQry.ParamByName('uf').AsString := cledUf.text;
+    DM.oQry.ParamByName('cidade').AsString := cledCidade.text;
+    DM.oQry.ParamByName('telefone').AsString := clTelefone.text;
+  
+    DM.oQry.ParamByName('celular').AsString := clCelular.text;
+    DM.oQry.ParamByName('observacao').AsString := clObs.text;
+    DM.oQry.ParamByName('empresa').AsInteger := BaseModule.codEmpresa;
+  
+
+  
+    DM.oQry.ExecSQL();
+
+  
+    fMensagem.Mensagem(cTexto, 'Sucesso', 'S', '','mrOK','');
+
+  except 
+    on e:Exception do
+    begin
+      fMensagem.Mensagem(e.Message, 'Falha!', 'N', '','mrOK','');
+    end;
+  end;
+end;
 
 procedure TfCliente.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
