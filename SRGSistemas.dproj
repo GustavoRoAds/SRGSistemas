@@ -154,6 +154,16 @@
             <Form>fMensagem</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Units\uLocal.pas">
+            <Form>fPadrao1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Units\uCarregaLocal.pas"/>
+        <DCCReference Include="Units\uConsulta.pas">
+            <Form>fConsulta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Units\uUtils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

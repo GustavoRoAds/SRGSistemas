@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls,
+  Data.DB, Datasnap.DBClient;
 
 type
   TfCliente = class(TForm)
@@ -44,8 +45,17 @@ type
     cledCidade: TEdit;
     Label11: TLabel;
     cledUf: TEdit;
+    SpeedButton1: TSpeedButton;
+    CDSCliente: TClientDataSet;
+    DTSCliente: TDataSource;
+    CDSClienteid: TStringField;
+    CDSClientenome: TStringField;
+    CDSClientecnpj: TStringField;
+    CDSClientetelefone: TStringField;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure clSalvarClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure salvar;
     { Private declarations }
@@ -60,7 +70,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDM, BaseModule, uMensagem;
+uses uDM, BaseModule, uMensagem, uUtils;
 
 procedure TfCliente.clSalvarClick(Sender: TObject);
 var
@@ -69,38 +79,38 @@ var
 begin
   validaFormulario := true;
 
-  cTexto := 'Esta faltando Preencher esses campos: '+chr(13)+chr(13);
-  if clEdCnpj.Text = '' then
-  begin
-    cTexto := cTexto +'CNPJ Inválido! '+chr(13);
-    validaFormulario := false;
-  end;
+//  cTexto := 'Esta faltando Preencher esses campos: '+chr(13)+chr(13);
+//  if clEdCnpj.Text = '' then
+//  begin
+//    cTexto := cTexto +'CNPJ Inválido! '+chr(13);
+//    validaFormulario := false;
+//  end;
+//
+//  if clNome.Text = '' then
+//  begin
+//    cTexto := cTexto +'Nome Inválido! '+chr(13);
+//    validaFormulario := false;
+//  end;
+//
+//  if clEdFantasia.Text = '' then
+//  begin
+//    cTexto := cTexto +'Nome Fantasia Inválido! '+chr(13);
+//    validaFormulario := false;
+//  end;
+//
+//  if cledCidade.Text = '' then
+//  begin
+//    cTexto := cTexto +'Cidade Inválido! '+chr(13);
+//    validaFormulario := false;
+//  end;
 
-  if clNome.Text = '' then
+  if validaFormulario then
   begin
-    cTexto := cTexto +'Nome Inválido! '+chr(13);
-    validaFormulario := false;
-  end;
-
-  if clEdFantasia.Text = '' then
-  begin
-    cTexto := cTexto +'Nome Fantasia Inválido! '+chr(13);
-    validaFormulario := false;
-  end;
-
-  if cledCidade.Text = '' then
-  begin
-    cTexto := cTexto +'Cidade Inválido! '+chr(13);
-    validaFormulario := false;
-  end;
-
-  if not validaFormulario then
-  begin
-    fMensagem.Mensagem(cTexto, 'Atenção', 'A', '','mrOK','');
+    salvar();
   end
   else
   begin
-    salvar();
+    fMensagem.Mensagem(cTexto, 'Atenção', 'A', '','mrOK','');
   end;
     
 end;
@@ -111,28 +121,32 @@ var
   cTexto:string;
 begin
   try
+    DM.oQry.Connection := DM.oCon;
     DM.oQry.Close;
     DM.oQry.SQL.Clear;
 
     if clCodigo.Text <> '' then
     begin
-      cQry := 'UPDATE cliente SET nome = :nome, cpf = :cpf, cnpj = :cnpj, rg = :rg, cep = :cep, ';
+      cQry := 'UPDATE cliente SET nome = :nome, cgc = :cgc, rg = :rg, cep = :cep, ';
       cQry := cQry + ' endereco = :endereco, numero = :numero, bairro = :bairro, uf := :uf, cidade = :cidade, telefone = :telefone, ';
       cQry := cQry + ' celular = :celular, observacao = :observacao WHERE empresa = :empresa';
       cTexto := 'Alterado com Sucesso!';
     end
     else
     begin
-      cQry := 'INSERT INTO cliente (nome, cpf, cnpj, rg, cep, ';
-      cQry := cQry + ' endereco, numero, bairro, uf, cidade, telefone, ';
-      cQry := cQry + ' celular, observacao, empresa';
+      cQry := 'INSERT INTO cliente (nome, cgc, rg, cep, ';
+      cQry := cQry + 'endereco, numero, bairro, uf, cidade, telefone, ';
+      cQry := cQry + 'celular, observacao, empresa) ';
+      cQry := cQry + 'VALUES (';
+      cQry := cQry + ':nome, :cgc, :rg, :cep, ';
+      cQry := cQry + ':endereco, :numero, :bairro, :uf, :cidade, :telefone, ';
+      cQry := cQry + ':celular, :observacao, :empresa)';
       cTexto := 'Inserido com Sucesso!';
     end;
     DM.oQry.SQL.Add(cQry);
 
     DM.oQry.ParamByName('nome').AsString := clNome.text;
-    DM.oQry.ParamByName('cpf').AsString := clEdCnpj.text;
-    DM.oQry.ParamByName('cnpj').AsString := clEdCnpj.text;
+    DM.oQry.ParamByName('cgc').AsString := clEdCnpj.text;
     DM.oQry.ParamByName('rg').AsString := clEdRg.text;
     DM.oQry.ParamByName('cep').AsString := clCep.text;
   
@@ -162,11 +176,22 @@ begin
   end;
 end;
 
+procedure TfCliente.SpeedButton1Click(Sender: TObject);
+begin
+  abreMenu('Consulta',1);
+
+end;
+
 procedure TfCliente.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if key = VK_ESCAPE then
     fCliente.close;
+end;
+
+procedure TfCliente.FormShow(Sender: TObject);
+begin
+  CDSCliente.CreateDataSet;
 end;
 
 end.

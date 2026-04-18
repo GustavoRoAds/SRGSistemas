@@ -1,0 +1,13 @@
+unit BaseModule;
+
+interface
+
+var
+  codEmpresa:integer;
+  BasePath:string;
+  pathAppdata:string;
+
+implementation
+
+
+end.

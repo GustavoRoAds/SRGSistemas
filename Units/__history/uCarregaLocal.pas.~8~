@@ -1,0 +1,25 @@
+unit uCarregaLocal;
+
+interface
+
+uses System.IOUtils, System.IniFiles, System.SysUtils;
+
+function getIni:TIniFile;
+
+implementation
+
+uses BaseModule;
+
+const
+  arq_ini = 'configuracao.ini';
+
+
+function getIni:TIniFile;
+var
+  aqIni: TIniFile;
+begin
+  BaseModule.pathAppdata := TPath.GetHomePath;
+  result := TIniFile.Create(BaseModule.pathAppdata + '\'+arq_ini);
+end;
+
+end.

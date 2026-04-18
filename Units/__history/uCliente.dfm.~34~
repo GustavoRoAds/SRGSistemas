@@ -1,0 +1,425 @@
+object fCliente: TfCliente
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = 'Cliente'
+  ClientHeight = 509
+  ClientWidth = 800
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  KeyPreview = True
+  Position = poScreenCenter
+  OnKeyDown = FormKeyDown
+  TextHeight = 15
+  object cllbCpj: TLabel
+    Left = 3
+    Top = 61
+    Width = 53
+    Height = 15
+    Caption = 'CNPJ/CPF'
+  end
+  object cllbRg: TLabel
+    Left = 142
+    Top = 61
+    Width = 15
+    Height = 15
+    Caption = 'RG'
+  end
+  object Label3: TLabel
+    Left = 3
+    Top = 118
+    Width = 33
+    Height = 15
+    Caption = 'Nome'
+  end
+  object Label1: TLabel
+    Left = 3
+    Top = 177
+    Width = 21
+    Height = 15
+    Caption = 'CEP'
+  end
+  object Label2: TLabel
+    Left = 142
+    Top = 177
+    Width = 49
+    Height = 15
+    Caption = 'Endere'#231'o'
+  end
+  object Label4: TLabel
+    Left = 389
+    Top = 177
+    Width = 44
+    Height = 15
+    Caption = 'Numero'
+  end
+  object Label5: TLabel
+    Left = 480
+    Top = 177
+    Width = 31
+    Height = 15
+    Caption = 'Bairro'
+  end
+  object Label6: TLabel
+    Left = 3
+    Top = 277
+    Width = 44
+    Height = 15
+    Caption = 'Telefone'
+  end
+  object Label7: TLabel
+    Left = 123
+    Top = 277
+    Width = 37
+    Height = 15
+    Caption = 'Celular'
+  end
+  object cllbFantasia: TLabel
+    Left = 394
+    Top = 118
+    Width = 43
+    Height = 15
+    Caption = 'Fantasia'
+  end
+  object Label8: TLabel
+    Left = 3
+    Top = 327
+    Width = 62
+    Height = 15
+    Caption = 'Observa'#231#227'o'
+  end
+  object Label9: TLabel
+    Left = 3
+    Top = 8
+    Width = 39
+    Height = 15
+    Caption = 'C'#243'digo'
+  end
+  object Label10: TLabel
+    Left = 3
+    Top = 228
+    Width = 37
+    Height = 15
+    Caption = 'Cidade'
+  end
+  object Label11: TLabel
+    Left = 336
+    Top = 177
+    Width = 14
+    Height = 15
+    Caption = 'UF'
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 95
+    Top = 19
+    Width = 32
+    Height = 32
+    Glyph.Data = {
+      F6060000424DF606000000000000360000002800000018000000180000000100
+      180000000000C0060000120B0000120B00000000000000000000FFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0C9
+      BA827162D0CABDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFCBC4B44C3307100000847350FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFD1CBBD50390C2F1400493205CBC5B6FFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFD3CDBF533B11351A004D360CCDC6B6FFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCEC8B84D36082F13004E3708CDC6
+      B6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD1CBBE533C0F2F1300
+      4A3207C8C1B0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFF7F5F2D2CCBFCAC3B5DAD5CAFFFFFFFFFFFFFFFFFFE5E1DA55
+      3E0D32160050390ED0CABBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFEDEAE28A7A5D553E155139084F37055139095A441BA79B
+      84FAFAF68E805F290C00543E12D0CABBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFDAD6C64C340C432903847452BCB4A1CAC3B3
+      AEA48D715E373F260058421C553E0C837254E2DED4FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE9E6DF442A0A604B2EE2DED5FF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFC8C0B0442B03523B0CFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF75623D4E36
+      11F4F3ECFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC7BFAB402700AA
+      9E87FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      DDD9CE3B2100B0A58BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFF705D355B4516FBFBFAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFA79C83533C0AE3DFD6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFB0A68F513907DCD7CCFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9485675E481BF5F4F1FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCAC3B44E3704CAC2B4FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9D90745A4312EBE9
+      E3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBDB3A14F
+      3807D3CEC0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      CBC4B6402600C4BCAAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFF857553543D0CF4F3EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFCFCFC5B451B6B5632FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFE3DFD34026008D7F5EFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCCC4B42F130094856EFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFF1F0E85E48284E3609ECEAE4FFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0A6
+      8D2F14006B583ABFB6A3EBE8E2F5F4F1E0DBD2AFA48D4C3513442C0BDED9CFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFC9C2AF5A441D4128005A43145E481A533C0C3C22007664
+      47EAE7DCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDF9CAC4B69E9075938466
+      A89D85DCD8CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+    OnClick = SpeedButton1Click
+  end
+  object pnBotao: TPanel
+    AlignWithMargins = True
+    Left = 3
+    Top = 465
+    Width = 794
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = 16744448
+    ParentBackground = False
+    TabOrder = 0
+    object Panel1: TPanel
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 94
+      Height = 35
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 7293440
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 0
+      object clSalvar: TSpeedButton
+        Left = 0
+        Top = 0
+        Width = 94
+        Height = 35
+        Align = alClient
+        Caption = 'Salvar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = clSalvarClick
+        ExplicitLeft = 40
+        ExplicitTop = 8
+        ExplicitWidth = 23
+        ExplicitHeight = 22
+      end
+    end
+    object Panel2: TPanel
+      AlignWithMargins = True
+      Left = 103
+      Top = 3
+      Width = 94
+      Height = 35
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 7293440
+      ParentBackground = False
+      TabOrder = 1
+      object clLimpar: TSpeedButton
+        Left = 0
+        Top = 0
+        Width = 94
+        Height = 35
+        Align = alClient
+        Caption = 'Limpar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 40
+        ExplicitTop = 8
+        ExplicitWidth = 23
+        ExplicitHeight = 22
+      end
+    end
+    object Panel3: TPanel
+      AlignWithMargins = True
+      Left = 697
+      Top = 3
+      Width = 94
+      Height = 35
+      Align = alRight
+      BevelOuter = bvNone
+      Color = 7293440
+      ParentBackground = False
+      TabOrder = 2
+      object clExcluir: TSpeedButton
+        Left = 0
+        Top = 0
+        Width = 94
+        Height = 35
+        Align = alClient
+        Caption = 'Excluir'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 40
+        ExplicitTop = 8
+        ExplicitWidth = 23
+        ExplicitHeight = 22
+      end
+    end
+  end
+  object clCodigo: TEdit
+    Left = 3
+    Top = 27
+    Width = 86
+    Height = 23
+    TabOrder = 1
+  end
+  object clEdCnpj: TEdit
+    Left = 3
+    Top = 79
+    Width = 121
+    Height = 23
+    TabOrder = 2
+  end
+  object clEdRg: TEdit
+    Left = 142
+    Top = 79
+    Width = 94
+    Height = 23
+    TabOrder = 3
+  end
+  object clNome: TEdit
+    Left = 3
+    Top = 138
+    Width = 377
+    Height = 23
+    TabOrder = 4
+  end
+  object clCep: TEdit
+    Left = 3
+    Top = 196
+    Width = 81
+    Height = 23
+    TabOrder = 5
+  end
+  object clEndereco: TEdit
+    Left = 142
+    Top = 196
+    Width = 186
+    Height = 23
+    TabOrder = 6
+  end
+  object clNumeroEnd: TEdit
+    Left = 389
+    Top = 196
+    Width = 82
+    Height = 23
+    TabOrder = 7
+  end
+  object clBairro: TEdit
+    Left = 480
+    Top = 196
+    Width = 130
+    Height = 23
+    TabOrder = 8
+  end
+  object clTelefone: TEdit
+    Left = 3
+    Top = 296
+    Width = 105
+    Height = 23
+    TabOrder = 9
+  end
+  object clCelular: TEdit
+    Left = 123
+    Top = 296
+    Width = 105
+    Height = 23
+    TabOrder = 10
+  end
+  object clEdFantasia: TEdit
+    Left = 394
+    Top = 138
+    Width = 353
+    Height = 23
+    TabOrder = 11
+  end
+  object clObs: TMemo
+    Left = 3
+    Top = 348
+    Width = 281
+    Height = 89
+    BevelOuter = bvNone
+    Lines.Strings = (
+      '')
+    TabOrder = 12
+  end
+  object BitBtn1: TBitBtn
+    Left = 90
+    Top = 195
+    Width = 41
+    Height = 25
+    TabOrder = 13
+  end
+  object cledCidade: TEdit
+    Left = 3
+    Top = 247
+    Width = 128
+    Height = 23
+    TabOrder = 14
+  end
+  object cledUf: TEdit
+    Left = 336
+    Top = 196
+    Width = 45
+    Height = 23
+    TabOrder = 15
+  end
+  object CDSCliente: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 400
+    Top = 248
+    object CDSClienteid: TStringField
+      FieldName = 'id'
+      Size = 50
+    end
+    object CDSClientenome: TStringField
+      FieldName = 'nome'
+      Size = 200
+    end
+    object CDSClientecnpj: TStringField
+      FieldName = 'cnpj'
+    end
+    object CDSClientetelefone: TStringField
+      FieldName = 'telefone'
+      Size = 50
+    end
+  end
+  object DTSCliente: TDataSource
+    Left = 472
+    Top = 256
+  end
+end

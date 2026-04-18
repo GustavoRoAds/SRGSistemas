@@ -1,0 +1,11 @@
+inherited fPadrao2: TfPadrao2
+  Caption = 'Consulta'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited pnBotao: TPanel
+    Top = 438
+    Height = 0
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitHeight = 0
+  end
+end

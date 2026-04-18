@@ -1,0 +1,32 @@
+unit uUtils;
+
+interface
+
+uses Vcl.Forms, System.SysUtils;
+
+procedure abreMenu(menu,tela:integer);
+procedure abreConsulta(tela:integer);
+
+
+implementation
+
+uses uConsulta;
+
+
+
+procedure abreMenu(menu,tela:integer);
+begin
+  if menu = 'Consulta' then
+    abreConsulta(tela);
+
+end;
+
+procedure abreConsulta(tela:integer);
+begin
+  Application.CreateForm(TfConsulta, fConsulta);
+  fConsulta._tela := tela;
+  fConsulta.ShowModal;
+  fConsulta.free;
+end;
+
+end.

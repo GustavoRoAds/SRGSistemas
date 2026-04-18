@@ -1,0 +1,29 @@
+unit uCarregaLocal;
+
+interface
+
+uses System.IOUtils, System.IniFiles, System.SysUtils;
+
+function getIni:TIniFile;
+
+implementation
+
+uses BaseModule;
+
+const
+  ini_local = 'local.ini';
+
+
+function getIni:TIniFile;
+var
+  aqIni: TIniFile;
+  pasta, caminho:string;
+begin
+  BaseModule.pathAppdata := TPath.GetHomePath;
+  pasta := TPath.Combine(BaseModule.pathAppdata,'SRGSistemas');
+  ForceDirectories(pasta);
+
+  result := TIniFile.Create(TPath.Combine(pasta , ini_local));
+end;
+
+end.

@@ -1,0 +1,49 @@
+unit uLocal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uPadrao, Vcl.ExtCtrls, System.IniFiles, System.IOUtils;
+
+type
+  TfPadrao1 = class(TfPadrao)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure gravaLocal(check:boolean);
+  end;
+
+var
+  fPadrao1: TfPadrao1;
+
+const
+  ARQ_INI = 'Configuracao.ini';
+
+
+implementation
+
+{$R *.dfm}
+
+uses BaseModule;
+
+{ TfPadrao1 }
+
+procedure TfPadrao1.gravaLocal(check:boolean);
+var
+  arqIni: Tinifile;
+  caminho_APPDATA, sLocal: string;
+begin
+  sLocal := 'LOCAL';
+  pathAppdata := TPath.GetHomePath;
+  arqIni := TIniFile.Create(caminho_APPDATA + ARQ_INI);
+
+  try
+    arqIni.WriteString(sLocal,'manterSenha', check)
+  finally
+    FreeAndNil(arqIni);
+  end;
+end;
+
+end.

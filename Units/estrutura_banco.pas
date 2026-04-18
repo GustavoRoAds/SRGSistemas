@@ -28,22 +28,21 @@ begin
 
   cQry := ' CREATE TABLE IF NOT EXISTS cliente( ';
   cQry := cQry + ' codigo INTEGER PRIMARY KEY AUTOINCREMENT, ';
-  
-  cQry := cQry + ' nome TEXT NOT NULL, ';
-  cQry := cQry + ' cpf TEXT NOT NULL, ';
-  cQry := cQry + ' cnpj TEXT NOT NULL, ';
-  cQry := cQry + ' rg TEXT, ';
-  cQry := cQry + ' cep TEXT, ';
-  cQry := cQry + ' endereco TEXT, ';
-  cQry := cQry + ' numero TEXT, ';
-  cQry := cQry + ' bairro TEXT, ';
-  cQry := cQry + ' uf TEXT, ';
-  cQry := cQry + ' cidade TEXT, ';
-  cQry := cQry + ' telefone TEXT, ';
-  cQry := cQry + ' celular TEXT, ';
-  cQry := cQry + ' observacao TEXT, ';
+  cQry := cQry + ' nome VARCHAR(100) NOT NULL, ';
+  cQry := cQry + ' cgc VARCHAR(20) NOT NULL, ';
+  cQry := cQry + ' rg VARCHAR(20), ';
+  cQry := cQry + ' cep VARCHAR(10), ';
+  cQry := cQry + ' endereco VARCHAR(200), ';
+  cQry := cQry + ' numero VARCHAR(10), ';
+  cQry := cQry + ' bairro VARCHAR(100), ';
+  cQry := cQry + ' uf VARCHAR(2), ';
+  cQry := cQry + ' cidade VARCHAR(100), ';
+  cQry := cQry + ' telefone VARCHAR(20), ';
+  cQry := cQry + ' celular VARCHAR(20), ';
+  cQry := cQry + ' observacao VARCHAR(300), ';
   cQry := cQry + ' empresa INTEGER ';
-  cQry := cQry+  ');';
+  cQry := cQry + ');';
+
 
   DM.oQry.SQL.Clear;
   DM.oQry.SQL.Add(cQry);
@@ -56,13 +55,12 @@ var
 begin
 //  DM.oQry.Connection := DM.oCon;
 
-  cQry := ' CREATE TABLE IF NOT EXISTS usuario( ';
+  cQry := 'CREATE TABLE IF NOT EXISTS usuario (';
   cQry := cQry + ' codigo INTEGER PRIMARY KEY AUTOINCREMENT, ';
-  cQry := cQry + ' nome TEXT, ';
-  cQry := cQry + ' senha TEXT,';
-  cQry := cQry + ' usuariolembrar TEXT,';
-  cQry := cQry + ' admin TEXT';
-  cQry := cQry+  ');';
+  cQry := cQry + ' nome VARCHAR(100), ';
+  cQry := cQry + ' senha VARCHAR(100), ';
+  cQry := cQry + ' admin VARCHAR(10) ';
+  cQry := cQry + ');';
 
   DM.oQry.SQL.Clear;
   DM.oQry.SQL.Add(cQry);
@@ -75,18 +73,17 @@ var
 begin
 //  DM.oQry.Connection := DM.oCon;
 
-  cQry := ' CREATE TABLE IF NOT EXISTS empresa( ';
+  cQry := 'CREATE TABLE IF NOT EXISTS empresa (';
   cQry := cQry + ' codigo INTEGER PRIMARY KEY AUTOINCREMENT, ';
-  cQry := cQry + ' cpf TEXT, ';
-  cQry := cQry + ' cnpj TEXT, ';
-  cQry := cQry + ' nome TEXT, ';
-  cQry := cQry + ' fantasia TEXT, ';
-  cQry := cQry + ' endereco TEXT, ';
-  cQry := cQry + ' bairro TEXT, ';
-  cQry := cQry + ' numero TEXT, ';
-  cQry := cQry + ' cep TEXT, ';
-  cQry := cQry + ' telefone TEXT ';
-  cQry := cQry+  ');';
+  cQry := cQry + ' cgc VARCHAR(18), ';
+  cQry := cQry + ' nome VARCHAR(150), ';
+  cQry := cQry + ' fantasia VARCHAR(150), ';
+  cQry := cQry + ' endereco VARCHAR(200), ';
+  cQry := cQry + ' bairro VARCHAR(100), ';
+  cQry := cQry + ' numero VARCHAR(10), ';
+  cQry := cQry + ' cep VARCHAR(10), ';
+  cQry := cQry + ' telefone VARCHAR(20) ';
+  cQry := cQry + ');';
 
   DM.oQry.SQL.Clear;
   DM.oQry.SQL.Add(cQry);
@@ -99,16 +96,16 @@ var
 begin
 //  DM.oQry.Connection := DM.oCon;
 
-  cQry := ' CREATE TABLE IF NOT EXISTS lembrasenha( ';
-  cQry := cQry + ' codigo INTEGER PRIMARY KEY AUTOINCREMENT, ';
-  cQry := cQry + ' id_usuario INTEGER, ';
-  cQry := cQry + ' usuariolembrar TEXT, ';
-  cQry := cQry + ' FOREIGN KEY (id_usuario) REFERENCES usuario(codigo) ';
-  cQry := cQry+  ');';
+//  cQry := ' CREATE TABLE IF NOT EXISTS lembrasenha( ';
+//  cQry := cQry + ' codigo INTEGER PRIMARY KEY AUTOINCREMENT, ';
+//  cQry := cQry + ' id_usuario INTEGER, ';
+//  cQry := cQry + ' usuariolembrar TEXT, ';
+//  cQry := cQry + ' FOREIGN KEY (id_usuario) REFERENCES usuario(codigo) ';
+//  cQry := cQry+  ');';
 
-  DM.oQry.SQL.Clear;
-  DM.oQry.SQL.Add(cQry);
-  DM.oQry.ExecSQL();
+//  DM.oQry.SQL.Clear;
+//  DM.oQry.SQL.Add(cQry);
+//  DM.oQry.ExecSQL();
 end;
 
 end.

@@ -1,0 +1,38 @@
+inherited fConsulta: TfConsulta
+  Caption = 'Consulta'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited pnBotao: TPanel
+    Top = 438
+    Height = 0
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitTop = 438
+    ExplicitHeight = 0
+  end
+  object DBConsulta: TDBGrid
+    Left = 0
+    Top = 0
+    Width = 624
+    Height = 435
+    Align = alClient
+    DataSource = DTSConsulta
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    OnDrawColumnCell = DBConsultaDrawColumnCell
+  end
+  object CDSConsulta: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 304
+    Top = 224
+  end
+  object DTSConsulta: TDataSource
+    DataSet = CDSConsulta
+    Left = 376
+    Top = 224
+  end
+end

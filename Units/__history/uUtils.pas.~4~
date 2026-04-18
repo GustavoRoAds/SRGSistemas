@@ -1,0 +1,30 @@
+unit uUtils;
+
+interface
+
+uses Vcl.Forms;
+
+procedure abreMenu(menu:string);
+procedure abreConsulta;
+
+
+implementation
+
+uses uConsulta;
+
+
+
+procedure abreMenu(menu:string);
+begin
+  if menu = 'Consulta' then
+    abreConsulta;
+
+end;
+
+procedure abreConsulta;
+begin
+  Application.CreateForm
+
+end;
+
+end.

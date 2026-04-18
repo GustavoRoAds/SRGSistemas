@@ -1,0 +1,24 @@
+unit uLocal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uPadrao, Vcl.ExtCtrls;
+
+type
+  TfPadrao1 = class(TfPadrao)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fPadrao1: TfPadrao1;
+
+implementation
+
+{$R *.dfm}
+
+end.

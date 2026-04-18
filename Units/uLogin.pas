@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons, Vcl.StdCtrls, system.IniFiles;
 
 type
   TfLogin = class(TForm)
@@ -19,11 +19,12 @@ type
     lgLembrarSenha: TCheckBox;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
-    procedure lgLembrarSenhaClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure lgLembrarSenhaClick(Sender: TObject);
   private
     procedure buscaUsuario(valida:boolean=false);
+
 
     { Private declarations }
   public
@@ -37,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses estrutura_banco, uDM, uSRGSistemas, BaseModule;
+uses estrutura_banco, uDM, uSRGSistemas, BaseModule, uCarregaLocal;
 
 procedure TfLogin.FormCreate(Sender: TObject);
 begin
@@ -54,50 +55,55 @@ end;
 procedure TfLogin.FormShow(Sender: TObject);
 var
   lAtivo:boolean;
+  ini:TIniFile;
 begin
   criaTodasTabelas;
+
+
+  ini := getIni;
+  try
+    lgLembrarSenha.Checked := ini.ReadBool('LOCAL', 'lembrarSenha', false);
+    lgUsuario.Text := ini.ReadString('LOCAL', 'nomeUser', '')
+  finally
+    ini.Free;
+  end;
+
+  if not lgLembrarSenha.Checked then
+  begin
+    lgUsuario.Text := '';
+    lgSenha.Text := '';
+  end;
 
   DM.oQry.close;
   DM.oQry.SQL.Clear;
 
-  DM.oQry.SQL.Add(' SELECT nome, senha FROM usuario where codigo = 1 ');
+  DM.oQry.SQL.Add(' SELECT senha FROM usuario where nome = :nome ');
+  DM.oQry.ParamByName('nome').AsString := lgUsuario.Text;
   DM.oQry.Open();
 
-  if DM.oQry.RecordCount > 0 then
+  if DM.oQry.RecordCount > 0  then
   begin
-    lgLembrarSenha.Checked := true;
-
-    lgUsuario.Text := dm.oQry.FieldByName('nome').AsString;
     lgSenha.Text := DM.oQry.FieldByName('senha').AsString;
   end;
 
-  if lgLembrarSenha.Checked = true then
-  begin
-    buscaUsuario();
-  end;
-
-
-
+  
 end;
 
 procedure TfLogin.lgLembrarSenhaClick(Sender: TObject);
+var
+  ini:TIniFile;
 begin
-//  DM.oQry.close;
-//  DM.oQry.SQL.Clear;
-//
-//  dm.oQry.SQL.Add(' UPDATE usuario SET usuariolembrar = :usuariolembrar ');
-//  if lgLembrarSenha.Checked then
-//  begin
-//    dm.oQry.ParamByName('usuariolembrar').AsString := 'S';
-//  end
-//  else
-//    dm.oQry.ParamByName('usuariolembrar').AsString := 'N';
-//
-//  DM.oQry.ExecSQL();
+  ini := GetIni;
+  try
+    ini.WriteBool('LOCAL', 'lembrarSenha', lgLembrarSenha.Checked);
+  finally
+    ini.Free;
+  end;
 end;
 
 procedure TfLogin.SpeedButton1Click(Sender: TObject);
 begin
+
   BaseModule.codEmpresa := 1;
   BaseModule.BasePath := 'C:\SRGSistemas\';
   
@@ -108,13 +114,14 @@ procedure TfLogin.buscaUsuario(valida:boolean=false);
 var
   cQry:string;
   lPassouUser, lPassouSenha:boolean;
+  ini: TIniFile;
 begin
   DM.oQry.close;
   dm.oQry.SQL.Clear;
 
   if valida = true then
     begin
-    dm.oQry.SQL.Add(' SELECT * FROM usuario where nome = :nome ');
+    dm.oQry.SQL.Add(' SELECT nome, senha FROM usuario where nome = :nome ');
     dm.oQry.ParamByName('nome').AsString := LowerCase(lgUsuario.Text);
     dm.oQry.Open();
 
@@ -133,6 +140,15 @@ begin
 
         if (lPassouSenha = true) and (lPassouUser = true) then
         begin
+
+          ini := GetIni;
+          try
+            ini.WriteBool('LOCAL', 'lembrarSenha', lgLembrarSenha.Checked);
+            ini.WriteString('LOCAL', 'nomeUser', lgUsuario.Text);
+          finally
+            ini.Free;
+          end;
+
           Application.CreateForm(TfSRGSistemas, fSRGSistemas);
           fSRGSistemas.ShowModal;
           fSRGSistemas.release;

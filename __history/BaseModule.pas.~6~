@@ -1,0 +1,14 @@
+unit BaseModule;
+
+interface
+
+var
+  codEmpresa:integer;
+  BasePath:string;
+  pathAppdata:string;
+  manterSenha: boolean;
+
+implementation
+
+
+end.

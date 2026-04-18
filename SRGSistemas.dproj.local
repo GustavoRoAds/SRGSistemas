@@ -7,12 +7,12 @@
     <Transaction>2025/09/11 01:51:22.000.947,=C:\Users\farzi\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2026/04/05 21:11:03.000.192,=C:\Users\farzi\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2026/04/05 21:19:35.000.140,=C:\Users\farzi\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2026/04/05 21:20:01.000.864,C:\Users\farzi\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\SRGSistemas\uSRGSistemas.pas</Transaction>
     <Transaction>2026/04/05 21:20:01.000.864,C:\Users\farzi\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\SRGSistemas\uSRGSistemas.dfm</Transaction>
+    <Transaction>2026/04/05 21:20:01.000.864,C:\Users\farzi\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\SRGSistemas\uSRGSistemas.pas</Transaction>
     <Transaction>2026/04/05 21:21:07.000.531,C:\Users\farzi\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\SRGSistemas\SRGSistemas.dproj</Transaction>
     <Transaction>2026/04/05 21:31:10.000.240,=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/05 21:31:28.000.145,C:\SRGSistemas\Unit1.dfm=C:\SRGSistemas\Units\uCliente.dfm</Transaction>
     <Transaction>2026/04/05 21:31:28.000.145,C:\SRGSistemas\Unit1.pas=C:\SRGSistemas\Units\uCliente.pas</Transaction>
+    <Transaction>2026/04/05 21:31:28.000.145,C:\SRGSistemas\Unit1.dfm=C:\SRGSistemas\Units\uCliente.dfm</Transaction>
     <Transaction>2026/04/05 21:32:47.000.418,=C:\SRGSistemas\Unit1.pas</Transaction>
     <Transaction>2026/04/05 21:33:15.000.450,C:\SRGSistemas\Units\uPadrao.pas=C:\SRGSistemas\Unit1.pas</Transaction>
     <Transaction>2026/04/05 21:33:15.000.450,C:\SRGSistemas\Units\uPadrao.dfm=C:\SRGSistemas\Unit1.dfm</Transaction>
@@ -21,16 +21,18 @@
     <Transaction>2026/04/05 22:13:16.000.658,C:\SRGSistemas\Unit1.dfm=C:\SRGSistemas\Units\uDM.dfm</Transaction>
     <Transaction>2026/04/05 22:13:16.000.658,C:\SRGSistemas\Unit1.pas=C:\SRGSistemas\Units\uDM.pas</Transaction>
     <Transaction>2026/04/12 17:19:12.000.674,=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/12 17:19:35.000.041,C:\SRGSistemas\Units\uLogin.dfm=C:\SRGSistemas\Unit1.dfm</Transaction>
     <Transaction>2026/04/12 17:19:35.000.041,C:\SRGSistemas\Units\uLogin.pas=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/14 21:30:22.375,=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/14 21:30:38.523,C:\SRGSistemas\Units\uBaseModule.pas=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/14 21:30:57.050,C:\SRGSistemas\Units\uBaseModule.pas=</Transaction>
-    <Transaction>2026/04/14 21:31:00.475,=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/14 21:31:03.272,C:\SRGSistemas\BaseModule.pas=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/14 21:34:21.248,=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/14 21:34:32.552,=C:\SRGSistemas\Unit1.pas</Transaction>
-    <Transaction>2026/04/14 21:35:00.288,C:\SRGSistemas\Units\uMensagem.dfm=C:\SRGSistemas\Unit1.dfm</Transaction>
-    <Transaction>2026/04/14 21:35:00.288,C:\SRGSistemas\Units\uMensagem.pas=C:\SRGSistemas\Unit1.pas</Transaction>
+    <Transaction>2026/04/12 17:19:35.000.041,C:\SRGSistemas\Units\uLogin.dfm=C:\SRGSistemas\Unit1.dfm</Transaction>
+    <Transaction>2026/04/18 14:29:54.000.352,=C:\SRGSistemas\Unit1.pas</Transaction>
+    <Transaction>2026/04/18 14:30:14.000.347,=C:\SRGSistemas\Unit1.pas</Transaction>
+    <Transaction>2026/04/18 14:30:25.000.613,C:\SRGSistemas\Unit1.dfm=C:\SRGSistemas\Units\uLocal.dfm</Transaction>
+    <Transaction>2026/04/18 14:30:25.000.613,C:\SRGSistemas\Unit1.pas=C:\SRGSistemas\Units\uLocal.pas</Transaction>
+    <Transaction>2026/04/18 14:53:14.000.805,=C:\SRGSistemas\Unit1.pas</Transaction>
+    <Transaction>2026/04/18 14:53:46.000.369,C:\SRGSistemas\Unit1.pas=C:\SRGSistemas\Units\uCarregaLocal.pas</Transaction>
+    <Transaction>2026/04/18 15:46:14.000.858,=C:\SRGSistemas\Unit2.pas</Transaction>
+    <Transaction>2026/04/18 15:46:33.000.644,C:\SRGSistemas\Units\uConsulta.pas=C:\SRGSistemas\Unit2.pas</Transaction>
+    <Transaction>2026/04/18 15:46:33.000.644,C:\SRGSistemas\Units\uConsulta.dfm=C:\SRGSistemas\Unit2.dfm</Transaction>
+    <Transaction>2026/04/18 15:47:01.000.388,=C:\SRGSistemas\Unit1.pas</Transaction>
+    <Transaction>2026/04/18 15:47:10.000.312,C:\SRGSistemas\Units\uUtils.pas=C:\SRGSistemas\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
