@@ -4,8 +4,8 @@ object fMensagem: TfMensagem
   BorderStyle = bsNone
   BorderWidth = 2
   Caption = 'fMensagem'
-  ClientHeight = 332
-  ClientWidth = 446
+  ClientHeight = 299
+  ClientWidth = 408
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,107 +14,175 @@ object fMensagem: TfMensagem
   Font.Style = []
   Position = poMainFormCenter
   TextHeight = 15
-  object Panel3: TPanel
+  object TPanel
     Left = 0
     Top = 0
-    Width = 446
-    Height = 332
+    Width = 408
+    Height = 299
     Align = alClient
     BevelKind = bkSoft
-    Caption = 'Panel3'
     TabOrder = 0
+    ExplicitWidth = 446
+    ExplicitHeight = 332
     object img: TImage
+      AlignWithMargins = True
       Left = 1
-      Top = 1
-      Width = 440
-      Height = 115
-      Margins.Left = 150
-      Margins.Top = 30
-      Margins.Right = 150
-      Margins.Bottom = 30
-      Align = alClient
+      Top = 11
+      Width = 402
+      Height = 134
+      Margins.Left = 0
+      Margins.Top = 10
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alTop
       Center = True
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 450
-      ExplicitHeight = 127
+      ExplicitTop = 1
     end
     object mTitulo: TLabel
       AlignWithMargins = True
       Left = 4
-      Top = 123
-      Width = 434
-      Height = 17
-      Margins.Top = 7
-      Align = alBottom
+      Top = 148
+      Width = 396
+      Height = 23
+      Margins.Bottom = 2
+      Align = alTop
       Alignment = taCenter
       Caption = 'Titulo'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -17
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
-      ExplicitTop = 84
-      ExplicitWidth = 37
+      ExplicitWidth = 47
     end
     object Panel1: TPanel
       Left = 1
-      Top = 277
-      Width = 440
+      Top = 244
+      Width = 402
       Height = 50
       Align = alBottom
-      BevelKind = bkFlat
       BevelOuter = bvNone
       TabOrder = 0
-      object btnSalvar: TBitBtn
+      ExplicitTop = 277
+      ExplicitWidth = 440
+      object pnNao: TPanel
         AlignWithMargins = True
-        Left = 358
+        Left = 324
         Top = 3
         Width = 75
-        Height = 40
+        Height = 44
         Align = alRight
-        Caption = 'Salvar'
+        BevelOuter = bvNone
+        Color = 15105570
+        ParentBackground = False
         TabOrder = 0
-        Visible = False
-        OnClick = btnSalvarClick
-        ExplicitLeft = 350
-        ExplicitHeight = 44
+        ExplicitLeft = 203
+        ExplicitTop = 0
+        ExplicitHeight = 50
+        object btnNao: TSpeedButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 69
+          Height = 38
+          Align = alClient
+          Caption = 'N'#227'o'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Visible = False
+          OnClick = btnNaoClick
+          ExplicitLeft = 0
+          ExplicitTop = 6
+          ExplicitWidth = 75
+          ExplicitHeight = 44
+        end
       end
-      object btnCancelar: TBitBtn
+      object pnOk: TPanel
         AlignWithMargins = True
-        Left = 3
+        Left = 162
         Top = 3
         Width = 75
-        Height = 40
-        Align = alLeft
-        Caption = 'Cancelar'
-        TabOrder = 1
-        Visible = False
-        OnClick = btnCancelarClick
-        ExplicitHeight = 44
-      end
-      object btnOk: TBitBtn
-        AlignWithMargins = True
-        Left = 277
-        Top = 3
-        Width = 75
-        Height = 40
+        Height = 44
         Align = alRight
-        Caption = 'Retornar'
+        BevelOuter = bvNone
+        Color = 15105570
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitHeight = 50
+        object btnOk: TSpeedButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 69
+          Height = 38
+          Align = alClient
+          Caption = 'Ok'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Visible = False
+          OnClick = btnSimClick
+          ExplicitLeft = -43
+          ExplicitTop = -5
+          ExplicitWidth = 75
+          ExplicitHeight = 44
+        end
+      end
+      object pnSim: TPanel
+        AlignWithMargins = True
+        Left = 243
+        Top = 3
+        Width = 75
+        Height = 44
+        Align = alRight
+        BevelOuter = bvNone
+        Color = 15105570
+        ParentBackground = False
         TabOrder = 2
-        OnClick = btnOkClick
-        ExplicitLeft = 269
-        ExplicitHeight = 44
+        ExplicitLeft = 327
+        ExplicitTop = 0
+        ExplicitHeight = 50
+        object btnSim: TSpeedButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 69
+          Height = 38
+          Align = alClient
+          Caption = 'Sim'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Visible = False
+          OnClick = btnSimClick
+          ExplicitLeft = -6
+          ExplicitTop = 30
+          ExplicitWidth = 75
+          ExplicitHeight = 44
+        end
       end
     end
     object Panel2: TPanel
       Left = 1
-      Top = 143
-      Width = 440
-      Height = 134
+      Top = 170
+      Width = 402
+      Height = 74
       Align = alBottom
       BevelOuter = bvNone
       Color = clWhite
@@ -123,18 +191,20 @@ object fMensagem: TfMensagem
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
-        Width = 440
-        Height = 134
+        Width = 402
+        Height = 74
         Align = alClient
         BevelInner = bvNone
         BevelOuter = bvNone
         BorderStyle = bsNone
         TabOrder = 0
+        ExplicitWidth = 440
+        ExplicitHeight = 134
         object mTexto: TLabel
           AlignWithMargins = True
           Left = 3
           Top = 10
-          Width = 434
+          Width = 396
           Height = 17
           Margins.Top = 10
           Align = alTop

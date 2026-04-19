@@ -1,0 +1,16 @@
+unit BaseModule;
+
+interface
+
+var
+  codEmpresa:integer;
+  BasePath:string;
+  pathAppdata:string;
+  manterSenha: boolean;
+  nRetConsulta:string;
+  nOrigemTela:integer;
+
+implementation
+
+
+end.

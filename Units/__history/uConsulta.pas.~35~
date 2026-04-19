@@ -1,0 +1,106 @@
+unit uConsulta;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uPadrao, Vcl.ExtCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, Datasnap.DBClient;
+
+type
+  TfConsulta = class(TfPadrao)
+    DBConsulta: TDBGrid;
+    CDSConsulta: TClientDataSet;
+    DTSConsulta: TDataSource;
+    procedure DBConsultaDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    _tela:integer;
+  end;
+
+var
+  fConsulta: TfConsulta;
+
+implementation
+
+{$R *.dfm}
+
+uses uSRGSistemas, uCliente, uDM;
+
+procedure TfConsulta.DBConsultaDrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  inherited;
+  if not (gdSelected in State) then
+  begin
+    if (DBConsulta.DataSource.DataSet.RecNo mod 2) = 0 then
+      DBConsulta.Canvas.Brush.Color := clWhite
+    else
+      DBConsulta.Canvas.Brush.Color := $00F5F7FA;
+  end;
+
+  DBGrid.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TfConsulta.FormShow(Sender: TObject);
+var
+  cQry:string;
+begin
+  inherited;
+  fConsulta.Width := fSRGSistemas.ClientWidth -10;
+  fConsulta.Height := fSRGSistemas.ClientHeight;
+
+  fConsulta.Left := fSRGSistemas.Left + (fSRGSistemas.Width - fConsulta.Width) div 2;
+  fConsulta.Top := fSRGSistemas.Top + (fSRGSistemas.Height - fConsulta.Height) div 2;
+
+  if _tela = 1 then
+  begin
+    DM.oQry.Close;
+    DM.oQry.SQL.Clear;
+    cQry := 'SELECT codigo, nome, cgc, telefone, celular, cep, ';
+    cQry := cQry + 'cidade, endereco, numero, bairro, uf ';
+    cQry := cQry + 'FROM cliente';
+    DM.oQry.SQL.Add(cQry);
+    DM.oQry.Open();
+
+
+    DBConsulta.Columns.Items[0].Title.Caption := 'Código';
+    DBConsulta.Columns.Items[0].Width := 70;
+
+    DBConsulta.Columns.Items[1].Title.Caption := 'Nome';
+    DBConsulta.Columns.Items[1].Width := 180;
+
+    DBConsulta.Columns.Items[2].Title.Caption := 'CNPJ';
+    DBConsulta.Columns.Items[2].Width := 130;
+
+    DBConsulta.Columns.Items[3].Title.Caption := 'Telefone';
+    DBConsulta.Columns.Items[3].Width := 110;
+
+    DBConsulta.Columns.Items[4].Title.Caption := 'Celular';
+    DBConsulta.Columns.Items[4].Width := 110;
+
+    DBConsulta.Columns.Items[5].Title.Caption := 'CEP';
+    DBConsulta.Columns.Items[5].Width := 90;
+
+    DBConsulta.Columns.Items[6].Title.Caption := 'Cidade';
+    DBConsulta.Columns.Items[6].Width := 140;
+
+    DBConsulta.Columns.Items[7].Title.Caption := 'Endereço';
+    DBConsulta.Columns.Items[7].Width := 200;
+
+    DBConsulta.Columns.Items[8].Title.Caption := 'Numero';
+    DBConsulta.Columns.Items[8].Width := 140;
+
+    DBConsulta.Columns.Items[9].Title.Caption := 'bairro';
+    DBConsulta.Columns.Items[9].Width := 140;
+
+    DBConsulta.Columns.Items[10].Title.Caption := 'uf';
+    DBConsulta.Columns.Items[10].Width := 40;
+  end;
+end;
+
+end.

@@ -17,6 +17,7 @@ inherited fConsulta: TfConsulta
     Height = 435
     Align = alClient
     DataSource = DTSConsulta
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -24,6 +25,7 @@ inherited fConsulta: TfConsulta
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
     OnDrawColumnCell = DBConsultaDrawColumnCell
+    OnDblClick = DBConsultaDblClick
   end
   object CDSConsulta: TClientDataSet
     Aggregates = <>

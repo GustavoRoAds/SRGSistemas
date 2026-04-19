@@ -1,6 +1,8 @@
 object fCliente: TfCliente
   Left = 0
   Top = 0
+  AlphaBlend = True
+  AlphaBlendValue = 230
   BorderStyle = bsDialog
   Caption = 'Cliente'
   ClientHeight = 509
@@ -296,6 +298,8 @@ object fCliente: TfCliente
     Width = 86
     Height = 23
     TabOrder = 1
+    OnExit = clCodigoExit
+    OnKeyDown = clCodigoKeyDown
   end
   object clEdCnpj: TEdit
     Left = 3

@@ -8,25 +8,27 @@ uses
 
 type
   TfMensagem = class(TForm)
-    Panel3: TPanel;
     img: TImage;
     mTitulo: TLabel;
     Panel1: TPanel;
-    btnSalvar: TBitBtn;
-    btnCancelar: TBitBtn;
-    btnOk: TBitBtn;
     Panel2: TPanel;
     ScrollBox1: TScrollBox;
     mTexto: TLabel;
-    procedure btnSalvarClick(Sender: TObject);
-    procedure btnOkClick(Sender: TObject);
+    pnOk: TPanel;
+    btnOk: TSpeedButton;
+    pnNao: TPanel;
+    pnSim: TPanel;
+    btnSim: TSpeedButton;
+    btnNao: TSpeedButton;
+    procedure btnNaoClick(Sender: TObject);
+    procedure btnSimClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
   private
     
     { Private declarations }
   public
     { Public declarations }
-     procedure Mensagem(texto:string; titulo:string; tipoImg:string; btn:string; btn2:string; btn3:string);
+     procedure Mensagem(texto:string; titulo:string; tipoImg:string; btOk:boolean; btSim:boolean; btNao:boolean);
   end;
 
 var
@@ -42,19 +44,19 @@ begin
   fMensagem.Close;
 end;
 
-procedure TfMensagem.btnOkClick(Sender: TObject);
+procedure TfMensagem.btnSimClick(Sender: TObject);
 begin
 fMensagem.ModalResult := mrAbort;
   fMensagem.Close;
 end;
 
-procedure TfMensagem.btnSalvarClick(Sender: TObject);
+procedure TfMensagem.btnNaoClick(Sender: TObject);
 begin
   fMensagem.ModalResult := mrOk;
   fMensagem.Close;
 end;
 
-procedure TfMensagem.Mensagem(texto:string; titulo:string; tipoImg:string; btn:string; btn2:string; btn3:string);
+procedure TfMensagem.Mensagem(texto:string; titulo:string; tipoImg:string; btOk:boolean; btSim:boolean; btNao:boolean);
 begin
 
   mTexto.Caption := texto;
@@ -62,31 +64,48 @@ begin
 
   if tipoImg = 'S' then
   begin
-    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\ok.bmp');
+    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\sucesso.png');
   end
-  else if tipoImg = 'N' then
+  else if tipoImg = 'E' then
   begin
-    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\fail.bmp');
+    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\erro.png');
   end
   else if tipoImg = 'A' then
   begin
-    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\exclamacao.png');
+    img.Picture.LoadFromFile(BaseModule.BasePath+'imagem\atencao.png');
   end;
 
-  if btn = 'mrCan' then
+  if btok = true then
   begin
-  
-    btnCancelar.Visible := true;
-  end;
-  
-  if btn2 = 'mrOk' then
-  begin
+    pnOk.Visible := true;
     btnOk.Visible := true;
-  end;
-  
-  if btn3 = 'mrSal' then
+  end
+  else
   begin
-    btnSalvar.Visible := true;
+    pnOk.Visible := false;
+    btnOk.Visible := false;
+  end;
+
+  if btSim = true then
+  begin
+    pnSim.Visible := true;
+    btnSim.Visible := true;
+  end
+  else
+  begin
+    pnSim.Visible := false;
+    btnSim.Visible := false;
+  end;
+
+  if btNao = true then
+  begin
+    pnNao.Visible := true;
+    btnNao.Visible := true;
+  end
+  else
+  begin
+    pnNao.Visible := false;
+    btnNao.Visible := false;
   end;
 
   Self.ShowModal;

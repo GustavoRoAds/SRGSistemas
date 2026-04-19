@@ -15,6 +15,7 @@ type
     procedure DBConsultaDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure FormShow(Sender: TObject);
+    procedure DBConsultaDblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,7 +30,16 @@ implementation
 
 {$R *.dfm}
 
-uses uSRGSistemas, uCliente, uDM;
+uses uSRGSistemas, uCliente, uDM, BaseModule;
+
+procedure TfConsulta.DBConsultaDblClick(Sender: TObject);
+begin
+  inherited;
+  if _tela = 1 then
+  begin
+    BaseModule.nRetConsulta := StrToInt(DM.oQry.FieldByName('codigo').AsString);
+  end;
+end;
 
 procedure TfConsulta.DBConsultaDrawColumnCell(Sender: TObject; const Rect: TRect;
   DataCol: Integer; Column: TColumn; State: TGridDrawState);
@@ -40,8 +50,12 @@ begin
     if (DBConsulta.DataSource.DataSet.RecNo mod 2) = 0 then
       DBConsulta.Canvas.Brush.Color := clWhite
     else
-      DBConsulta.Canvas.Brush.Color := $00F5F7FA;
+      DBConsulta.Canvas.Brush.Color := clGradientActiveCaption;
+
+     DBConsulta.Canvas.FillRect(Rect);
   end;
+
+  DBConsulta.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 procedure TfConsulta.FormShow(Sender: TObject);
