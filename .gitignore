@@ -1,0 +1,16 @@
+*.pas
+*.dfm
+*.dpr
+*.dproj
+*.dproj.local
+*.identcache
+*.stat
+*.res
+*.inc
+
+Units/
+
+__history/
+*.~*
+*.bak
+*.local
