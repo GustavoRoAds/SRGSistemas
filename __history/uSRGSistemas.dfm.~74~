@@ -1,0 +1,387 @@
+object fSRGSistemas: TfSRGSistemas
+  Left = 0
+  Top = 0
+  Caption = 'SRGSistemas'
+  ClientHeight = 510
+  ClientWidth = 758
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  KeyPreview = True
+  Menu = MainMenu1
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  TextHeight = 15
+  object Panel8: TPanel
+    Left = 50
+    Top = 0
+    Width = 708
+    Height = 510
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitLeft = 52
+    object Panel9: TPanel
+      Left = 0
+      Top = 0
+      Width = 708
+      Height = 49
+      Align = alTop
+      BevelOuter = bvNone
+      Color = 6508088
+      ParentBackground = False
+      TabOrder = 0
+      object Panel10: TPanel
+        AlignWithMargins = True
+        Left = 531
+        Top = 3
+        Width = 172
+        Height = 43
+        Margins.Right = 5
+        Align = alRight
+        BevelOuter = bvNone
+        Color = 6508088
+        ParentBackground = False
+        TabOrder = 0
+        ExplicitLeft = 536
+        ExplicitTop = 0
+        ExplicitHeight = 49
+        object Image4: TImage
+          Left = 140
+          Top = 0
+          Width = 32
+          Height = 43
+          Align = alRight
+          AutoSize = True
+          Center = True
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+            00200403000000815467C7000000017352474201D9C92C7F0000000970485973
+            00000B1300000B1301009A9C1800000021504C5445000000CACACAFFFFFFD4D4
+            D4ECECECF2F2F2FEFEFEEBEBEBEEEEEEF8F8F8F7F7F704C5A4570000000B7452
+            4E5300FFFFFFFFFFFFFFFFFFFF7D767DD5000000624944415478DA636440038C
+            3414605464943D802C10748181E11EB2801203A9026C3240E2DF03840093029A
+            00A619451B18D86EE0B5056808C4089C029326A068619505B3C16A1861AE6080
+            1A8B220052C208B5130C38AEA10930DF265680F6310700FE681D21D266C25700
+            00000049454E44AE426082}
+          ExplicitHeight = 32
+        end
+        object lbUser: TLabel
+          Left = 86
+          Top = 12
+          Width = 45
+          Height = 20
+          Alignment = taRightJustify
+          Caption = 'lbUser'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -15
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+    end
+    object FlowPanel1: TFlowPanel
+      Left = 0
+      Top = 49
+      Width = 708
+      Height = 461
+      Align = alClient
+      Caption = 'FlowPanel'
+      TabOrder = 1
+      ExplicitLeft = 400
+      ExplicitTop = 144
+      ExplicitWidth = 185
+      ExplicitHeight = 41
+    end
+  end
+  object SplitMenu: TSplitView
+    Left = 0
+    Top = 0
+    Width = 50
+    Height = 510
+    CloseStyle = svcCompact
+    Color = 8940109
+    Opened = False
+    OpenedWidth = 200
+    Placement = svpLeft
+    TabOrder = 0
+    Touch.InteractiveGestures = []
+    object SpeedButton3: TSpeedButton
+      Left = 49
+      Top = 0
+      Width = 1
+      Height = 510
+      Align = alClient
+      Flat = True
+      ExplicitLeft = 4
+      ExplicitTop = -7
+      ExplicitWidth = 140
+      ExplicitHeight = 41
+    end
+    object Panel2: TPanel
+      Left = 0
+      Top = 0
+      Width = 49
+      Height = 510
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 6508088
+      ParentBackground = False
+      TabOrder = 0
+      ExplicitLeft = 16
+      object Panel1: TPanel
+        AlignWithMargins = True
+        Left = 3
+        Top = 143
+        Width = 43
+        Height = 41
+        Margins.Top = 10
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitLeft = 0
+        ExplicitTop = 179
+        object Image2: TImage
+          Left = 0
+          Top = 0
+          Width = 43
+          Height = 41
+          Margins.Top = 10
+          Align = alClient
+          Center = True
+          ExplicitLeft = -3
+          ExplicitTop = 24
+          ExplicitWidth = 46
+        end
+      end
+      object Panel3: TPanel
+        AlignWithMargins = True
+        Left = 3
+        Top = 197
+        Width = 43
+        Height = 41
+        Margins.Top = 10
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 1
+        ExplicitTop = 143
+        ExplicitWidth = 163
+        object Image3: TImage
+          Left = 0
+          Top = 0
+          Width = 46
+          Height = 41
+          Align = alLeft
+          Center = True
+          ExplicitLeft = 16
+          ExplicitTop = -3
+        end
+      end
+      object Panel4: TPanel
+        AlignWithMargins = True
+        Left = 3
+        Top = 89
+        Width = 43
+        Height = 41
+        Margins.Top = 40
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 2
+        ExplicitWidth = 163
+        object srCliente: TImage
+          Left = 0
+          Top = 0
+          Width = 46
+          Height = 41
+          Align = alLeft
+          Center = True
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+            0020080300000044A48AC6000000017352474201D9C92C7F0000000970485973
+            00000B1300000B1301009A9C180000028E504C5445000000FFFFFFFEFEFEFFFF
+            FFFFFFFFF9F9FAE8EAECF3F4F5FCFCFDFCFCFDFCFDFDF7F8F9F1F2F4F5F6F7FD
+            FDFDFFFFFFFDFDFDF9FAFBFAFAFAFEFEFEFEFEFEF7F8F9F6F7F8FEFEFEFEFEFE
+            F7F8F9EDEFF0FDFDFEFDFEFEEAECEEF7F8F9FAFAFBF9F9FAF8F8F9FDFDFEFBFC
+            FCFAFAFBFBFBFCFBFBFCFDFDFDECEEF0F3F4F6FBFBFCFCFCFDFEFEFEFDFDFDFA
+            FAFBEBEDEFFEFEFEF8F9FAF8F9FAFFFFFFFFFFFFF7F8F9F6F7F8FEFEFEFFFFFF
+            FEFEFEF2F3F5FCFDFDFFFFFFF4F5F6DEE1E5FDFDFDFEFEFEF7F8F9FFFFFFFEFE
+            FEFAFAFBFAFBFBEAECEEF7F8F9FAFAFBF9FAFAF8F8F9FCFCFDF3F4F6FEFEFEFA
+            FBFBCACFD5EDEFF1F6F7F8FCFCFCFCFCFCFCFDFDFCFCFCEFF0F2FAFAFBFEFEFF
+            F9FAFAF6F7F8FBFBFCF9F9FAF9F9FAF6F7F8F5F6F7FFFFFFFEFEFEFDFDFDFEFE
+            FEFAFBFBF8F8F9FCFCFDF6F7F8FEFEFEF8F9F9FFFFFFFFFFFFFEFEFEFDFDFEF2
+            F3F5FDFDFDF7F8F9FBFCFCF2F4F5FDFEFEFEFEFEEFF0F2F5F6F7EBEDEFFAFAFB
+            FCFCFDFFFFFFFAFAFBFCFCFCDADDE1F9F9FAFDFEFEFEFEFEFAFAFBFAFAFBFBFC
+            FCFCFCFCFCFDFDFCFCFCF9F9FAE6E9EBFCFCFCFBFBFCFEFEFEFCFDFDFAFBFBF6
+            F7F8FBFBFCF0F1F3F8F9FAFDFDFDFBFCFCFDFDFDF3F4F5F4F5F6FBFBFCFEFEFE
+            F6F7F8EEEFF1FEFFFFFFFFFFFCFCFDE9EBEEFAFAFBFFFFFFFEFEFEF5F6F7FDFD
+            FDFCFCFDE8EAEDFDFDFEF5F6F7F3F4F5FCFCFCFCFCFCFBFCFCF5F6F7FEFEFEF6
+            F7F8FCFDFDFDFDFEDEE1E5FDFDFDFCFCFCFFFFFFFFFFFFF4F5F6FDFDFEF9F9FA
+            EFF0F2F8F8F9F9FAFAFCFCFDFCFDFDFCFCFDFFFFFFFFFFFFFFFFFFFEFEFEFCFC
+            FCFCFCFDF6F6F8BDC3CBE2E4E8FFFFFFF9FAFAD9DDE1FDFDFDFDFDFDFBFCFCE3
+            E5E9FFFFFFEDEEF1F5F6F7FAFBFBFBFBFCFEFFFFFDFDFDFBFBFCFAFBFBFDFDFE
+            F5F6F7133AE382000000DA74524E53001DA5CDD2A72D34A9D1CD96204FEAFFF4
+            536EF3EC3714E3E62B24FCE61975908769B5BAA591AAF25D32B3F8FFDF6418D3
+            8E56FCFE7040EFFBA433DFFD4F07C7E427D7507CCA0B1EB39C5EA838FEB81214
+            3587B6BA882B7DCA1F89BAB779361115ABE7FC9D6FB92FFB9A1033DDCE36755C
+            DE25DBFA3E7E17BBC70570BD1981E2F6AD2A7D6FB3B73B1C4C79B5BE9858331E
+            7CF3BED5721BB8DF591EE4D58935DEF7883BF6E012CC467F8E68BC24F45BAFF5
+            10DDC741D120C6C5073C75ADD5F34020C0F0CA974A0518081D13A5EED513011A
+            487CA3D5D1AC7F400C1059FF72000001AC4944415478DAA5935128435118C7EF
+            FF41EC41495AF2202DA33D78B0B42249799017591109CD6AC950187958DE78A0
+            4C6A68ACD6921679B0D60A8FA4D1D2A83DAC662D799096B4F2207970EEF9CE6E
+            BB2B59F91ECEF7FFFEE7F7DD73CFB9E742FA23501C001E5F8A5BCAEB0F052807
+            38F52EE62BF1CDC6126404A0C527F73578E1B9867A59DF3301B559D159F1C453
+            9DF2A43401BA376154A578AACF885A9B24A0E195EA6AE4224D862E4680118F72
+            A9673309960D2CC765A309570474E05EAE9B813BEA6C41544E265C886D7623C2
+            C6365C8BB5DB814BC9A04530770E7D62E93301F488DA4F8085C9132607702C80
+            41202049FD61337618308503B2C7709B2065818F84152ED8355ED167033C5C94
+            59B02B3C3BE0742B9F6886AD154ECEB131BB9FF316B1BA9ED34BC88B6561AEC0
+            ED24A51F071E02A4D718B14072035E07291730AB2CB6C5886935B00D4CE6DD23
+            BD03136A600F36D54DF3025615E0834505F88151024223DC38C4B0FAB2063024
+            A7239CF35D994F530E3510446F884F511941BC10D0C0244979FF85B710E8A45C
+            3C104557FE3978602C0062F20BCD6FDE30D92ACB46A900F82DFE0FFC0006715F
+            3C9FEEB8E90000000049454E44AE426082}
+          Transparent = True
+          OnClick = srClienteClick
+        end
+      end
+      object pnMenu: TPanel
+        Left = 0
+        Top = 0
+        Width = 49
+        Height = 49
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 3
+        ExplicitWidth = 169
+        object Image1: TImage
+          Left = 0
+          Top = 0
+          Width = 49
+          Height = 49
+          Align = alLeft
+          Center = True
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+            001A0803000000E145AE0D000000017352474201D9C92C7F0000000970485973
+            00000B1300000B1301009A9C180000010B504C54453B3B3B9A9A9AA5A5A5A2A2
+            A29F9F9F9C9C9C9A9A9A9999999A9A9A9E9E9EA1A1A13C3C3CB9B9B9F8F8F8FC
+            FCFCBABABAC1C1C1FCFCFCFFFFFFC3C3C3C1C1C1BFBFBFBEBEBE303030898989
+            9494949292929090908E8E8E8C8C8C8B8B8B8A8A8A8989899090903131310000
+            000000000000000000000000000000000000008A8A8AE5E5E5EAEAEAEAEAEAE9
+            E9E9E8E8E8E7E7E78D8D8DBCBCBCFCFCFCBEBEBE9A9A9AEDEDEDF2F2F2F1F1F1
+            F1F1F1F0F0F0EFEFEF9D9D9D3B3B3B9B9B9BA4A4A4A2A2A2A1A1A19F9F9F9C9C
+            9C9A9A9A3C3C3CB6B6B6F9F9F9FCFCFCB6B6B6BFBFBFC0C0C0C0C0C023232371
+            71717C7C7C797979787878767676757575737373727272727272747474242424
+            80AE66AC0000005974524E5315272B2C2D2E2F2F2E2D2C1734BEDE383ADAFF3F
+            403A3B16262A2A2A2B2C2C2D2D2B181213141516171826718283838484293CDB
+            412B8AA0A0A1A1A22F182C3232323334351A36C2E23B40403A141F2122222323
+            242425231537BD97FF000000C14944415478DABD92BD0E82401084770494C2C2
+            46ED95CA92C4440B5B2B7D6C9FC3E730A0E7EEDD2D3F4A5C13132F3024EC077B
+            B337200004928BC52B3FEF2C6945E35B8EA9BE1C5EC0EC476084796D008BCA00
+            9690E55DA0EDE61E2294B18B75EBB2FB2B176E472848817E2B25506835D4A1C5
+            F03D031BC4D6BD264EB10425AE9F5CACFE016CC31E31B449D6546C76F2F03627
+            FA127825E2A4FCA00EFE2CD08C1AB12CCA2796E16825CAC8C3CE02F676A24E17
+            033823642EBA446390929A6D4C9EDB253566327948110000000049454E44AE42
+            6082}
+          Transparent = True
+          OnClick = Image1Click
+          ExplicitTop = -3
+        end
+      end
+    end
+    object Panel5: TPanel
+      Left = 46
+      Top = 89
+      Width = 140
+      Height = 41
+      BevelOuter = bvNone
+      Color = 6508088
+      ParentBackground = False
+      TabOrder = 1
+      object SpeedButton1: TSpeedButton
+        Left = 0
+        Top = 0
+        Width = 140
+        Height = 41
+        Align = alClient
+        Caption = 'Cliente'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        OnClick = SpeedButton1Click
+        ExplicitLeft = 56
+        ExplicitTop = 8
+        ExplicitWidth = 23
+        ExplicitHeight = 22
+      end
+    end
+    object Panel6: TPanel
+      Left = 46
+      Top = 143
+      Width = 140
+      Height = 41
+      BevelOuter = bvNone
+      Color = 6508088
+      ParentBackground = False
+      TabOrder = 2
+      object SpeedButton2: TSpeedButton
+        Left = 0
+        Top = 0
+        Width = 140
+        Height = 41
+        Align = alClient
+        Caption = 'Produto'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ExplicitLeft = 80
+        ExplicitWidth = 60
+      end
+    end
+    object Panel7: TPanel
+      Left = 48
+      Top = 197
+      Width = 140
+      Height = 41
+      BevelOuter = bvNone
+      Color = 6508088
+      ParentBackground = False
+      TabOrder = 3
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 376
+    Top = 264
+    object Cadastro1: TMenuItem
+      Caption = 'Cadastro'
+    end
+    object Faturamento1: TMenuItem
+      Caption = 'Faturamento'
+    end
+    object Outros1: TMenuItem
+      Caption = 'Outros'
+      object Atalhos1: TMenuItem
+        Caption = 'Atalhos'
+        OnClick = Atalhos1Click
+      end
+    end
+  end
+end

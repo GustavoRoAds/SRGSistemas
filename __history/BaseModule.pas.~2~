@@ -1,9 +1,0 @@
-unit BaseModule;
-
-interface
-
-implementation
-
-var
-  codEmpresa:integer;
-end.
